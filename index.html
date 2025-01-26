@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Acessibilidade Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Simulador de Acessibilidade Web</h1>
+    </header>
+
+    <main>
+        <input type="text" id="urlInput" placeholder="Insira a URL do site">
+
+        <button id="carregarBtn" onclick="carregarSite()">Carregar Site</button>
+
+        <div id="feedbackMsg" class="feedback"></div>
+
+        <div id="controles">
+            <button onclick="aplicarFiltro('daltonismo')">Daltonismo</button>
+            <button onclick="aplicarFiltro('baixa-visao')">Baixa Visão</button>
+            <button onclick="aplicarFiltro('cegueira')">Cegueira</button>
+            <button onclick="resetarFiltro()">Resetar</button>
+            <button onclick="gerarRelatorio()">Gerar Relatório</button>
+        </div>
+
+        <!-- Exibe uma imagem relacionada à acessibilidade enquanto o usuário não carregou o site -->
+        <div id="initialImage" class="initial-image">
+            <img src="assets/background-acessibilidade.png" style="max-width: 300px;"
+                alt="Imagem ilustrativa sobre acessibilidade" class="background-acessibilidade">
+            <p>Insira a URL para ver o conteúdo carregado.</p>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <p>Carregando...</p>
+        </div>
+
+        <iframe id="siteFrame" style="display: none;"></iframe>
+
+        <div id="secaoRelatorio" style="display: none;">
+            <h2>Relatório de Acessibilidade</h2>
+            <div id="conteudoRelatorio"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
